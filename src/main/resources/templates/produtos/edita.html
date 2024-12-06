@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Thymeleaf no OPD</title>
+		
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
+		<script th:src="@{/js/script.js}"></script>
+		
+	</head>
+	
+	<body>
+		
+		<div class="container">		
+			
+			<div class="card">
+				<form action="#" th:method="put" th:action="@{'/produtos/{id}'(id=${produto.id})}" th:object="${produto}">
+					
+					<div class="row">
+						<label>Nome</label>
+						<p>
+							<input th:field="*{nome}" autofocus>
+						</p>
+					</div>
+					
+					<div class="row">
+						<button>Atualizar</button>
+					</div>
+				</form>
+			</div>
+			
+		</div>
+
+	</body>
+
+</html>

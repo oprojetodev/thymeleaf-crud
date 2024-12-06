@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Thymeleaf no OPD</title>
+		
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
+		<script th:src="@{/js/script.js}"></script>
+		
+	</head>
+	
+	<body>
+		
+		<div class="container">		
+			
+			<table>
+				<head>
+					<tr>
+						<th width="40px"></th>
+						<th>Nome</th>
+						<th width="60px"></th>
+						<th width="60px"></th>
+					</tr>
+				</head>
+				<body>
+					<tr th:each="produto, row : ${produtos}" th:class="${row.index % 2 == 0 ? 'even' : 'odd'}">
+						<td class="center-align">
+			            	<label th:text="${row.index + 1}"></label>
+			            </td>
+						<td th:text="${produto.nome}"></td>
+						<td>
+							<a th:href="@{'/produtos/{id}'(id=${produto.id})}">Editar</a>
+						</td>
+						<td>
+							<form action="#" th:action="@{'/produtos/{id}'(id=${produto.id})}" th:method="delete">
+								<input type="hidden" name="_method" value="delete" />
+							    <button type="submit">Deletar</button>
+							</form>
+						</td>
+					</tr>
+				</body>
+			</table>
+			
+			<a th:href="@{/produtos/novo}">Novo</a>
+			
+		</div>
+
+	</body>
+
+</html>

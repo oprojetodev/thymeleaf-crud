@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Thymeleaf no OPD</title>
+		
+		<link rel="stylesheet" type="text/css" th:href="@{/css/style.css}"></link>
+		<script th:src="@{/js/script.js}"></script>
+		
+	</head>
+	
+	<body>
+		
+		<div class="container">
+			<a th:href="@{/produtos}">Produtos</a>
+
+			<h1 th:text="${atributo}"></h1>
+			<h1>[[${atributo}]]</h1>
+		</div>
+
+	</body>
+
+</html>
